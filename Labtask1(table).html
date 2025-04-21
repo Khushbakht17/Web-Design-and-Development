@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Film Ratings Table</title>
+<style>
+  .movie-table {
+    width: 33%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .table-head {
+    background-color: #add8e6; /* Sky Blue */
+    color: black;
+  }
+  .table-cell, .table-header {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+  }
+  .highlight-row {
+    background-color: #f0f8ff; /* Alice Blue */
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<table class="movie-table">
+  <thead class="table-head">
+    <tr>
+      <th class="table-header">Country</th>
+      <th class="table-header">Film Title</th>
+      <th class="table-header">Released</th>
+      <th class="table-header">Votes</th>
+      <th class="table-header">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3" class="table-cell">USA</td>
+      <td class="table-cell">The Shawshank Redemption</td>
+      <td class="table-cell">1994</td>
+      <td class="table-cell">678790</td>
+      <td class="table-cell">9.5</td>
+    </tr>
+    <tr>
+      <td class="table-cell">The Godfather</td>
+      <td class="table-cell">1972</td>
+      <td class="table-cell">511495</td>
+      <td class="table-cell">9.2</td>
+    </tr>
+    <tr>
+      <td class="table-cell">The Godfather: Part II</td>
+      <td class="table-cell">1974</td>
+      <td class="table-cell">319352</td>
+      <td class="table-cell">9</td>
+    </tr>
+    <tr class="highlight-row">
+      <td colspan="4" class="table-cell" style="text-align: left;">Highest Rating</td>
+      <td class="table-cell">9.5</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="table-cell">Italy</td>
+      <td class="table-cell">The Good, the Bad and the Ugly</td>
+      <td class="table-cell">1966</td>
+      <td class="table-cell">213030</td>
+      <td class="table-cell">8.9</td>
+    </tr>
+    <tr>
+      <td class="table-cell">The Star Maker</td>
+      <td class="table-cell">1995</td>
+      <td class="table-cell">164558</td>
+      <td class="table-cell">7.9</td>
+    </tr>
+    <tr class="highlight-row">
+      <td colspan="4" class="table-cell" style="text-align: left;">Rating</td>
+      <td class="table-cell">8.9</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
