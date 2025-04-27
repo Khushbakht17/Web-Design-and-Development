@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Power Portal</title>
+    <style>
+        body {
+            /* margin: 0; */
+            /* font-family: Arial, sans-serif; */
+            /* background-color: #f0f0e0; Light beige background */
+        }
+
+        /* Header Section */
+        .header {
+            background-color: white;
+            padding: 20px;
+            overflow: auto; /* Clear floats */
+        }
+
+        /* Logo */
+        .logo {
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .logo span {
+            color: orange;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            float: left;
+            margin-left: 30px;
+            background-color: #f8f8f8; /* Light gray background for menu */
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 5px;
+        }
+
+        .nav-menu a {
+            display: inline-block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ddd;
+        }
+
+        .nav-menu a.active {
+            background-color: orange;
+            color: white;
+        }
+
+        /* Contact Button */
+        .contact-button {
+            float: right;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-button:hover {
+            background-color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 50px 80px;
+            overflow: auto; /* Clear floats */
+        }
+
+        .hero-text {
+            float: left;
+            width: 55%;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            background-color: orange;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-color: #e08000;
+        }
+
+        .hero-image {
+            float: right;
+            width: 40%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+    <div class="header">
+        <div class="logo">Pixel <span>Power</span></div>
+        <div class="nav-menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">Lectures</a>
+            <a href="#">Labs</a>
+            <a href="#">Student Work</a>
+            <a href="#">Resources</a>
+            <a href="#">Blogs</a>
+        </div>
+        <a href="#" class="contact-button">Contact</a>
+    </div>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Our<br>Class Web Portal</h1>
+            <p>This site is part of our practical learning journey in web development. Here, students learn HTML, CSS (including floats), forms, and responsive design by building and contributing to this platform.</p>
+            <a href="#" class="hero-button">Start Exploring</a>
+        </div>
+        <div class="hero-image">
+            <img src="C:\Users\MITS\Desktop\6 semeser\Task 2 Assets\Task 2 Assets\page to design.png" alt="Web Development Learning">
+        </div>
+    </div>
+           <div style="background-color: black; color: white; text-align: center; padding: 30px 0;">
+            <p style="font-size: 20px; margin: 0;">This isn't just a website — it's a learning journey. Here,<br>students document what they learn and build.</p>
+        </div>
+        <body>
+            <div style="background-color: #f0f0e0; padding: 20px;">
+                <div style="overflow: auto;">
+                    <div style="float: left; width: 55%; padding-right: 20px; box-sizing: border-box;">
+                        <img src="placeholder-map.png" alt="Map" style="width: 100%; border: 1px solid #ccc;">
+                        </div>
+                    <div style="float: right; width: 45%; box-sizing: border-box;">
+                        <h2>Get in Touch with the Instructor</h2>
+                        <p>Have questions about lectures, labs, or assignments? Use the form below to contact your instructor or TA. We're here to support your learning journey.</p>
+                        <form>
+                            <div>
+                                <label for="name">Name:</label><br>
+                                <input type="text" id="name" name="name" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                            </div>
+                            <div>
+                                <label for="email">Email:</label><br>
+                                <input type="email" id="email" name="email" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                            </div>
+                            <div>
+                                <label for="tel">Tel:</label><br>
+                                <input type="tel" id="tel" name="tel" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+                            </div>
+                            <div>
+                                <label for="message">Message:</label><br>
+                                <textarea id="message" name="message" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box;"></textarea>
+                            </div>
+                            <button type="submit" style="background-color: #ff8c00; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                           <div style="background-color: black; color: #ddd; text-align: center; padding: 20px 0;">
+                    <p style="font-size: 14px; margin: 0;">All rights reserved @2025</p>
+                </div>
+            
+   </body>
+</html>
