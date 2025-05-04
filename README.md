@@ -5,3 +5,4 @@ https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask1(ta
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask2.html
 
+https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask3.html
