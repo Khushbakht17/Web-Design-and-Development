@@ -9,3 +9,4 @@ https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask3.ht
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask4.html
 
+https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask5.html
