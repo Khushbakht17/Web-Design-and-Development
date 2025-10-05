@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Cards – Vanilla JS (Dummy JSON)</title>
+  <style>
+    :root{
+      --bg:#0f1115; --card:#171923; --muted:#94a3b8; --text:#e2e8f0; --accent:#60a5fa;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    header{padding:24px 16px;border-bottom:1px solid #222}
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 6px;font-size:28px}
+    p.sub{margin:0;color:var(--muted)}
+
+    /* Controls */
+    .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:16px}
+    .controls input,.controls select{background:#0b0d13;color:var(--text);border:1px solid #232734;border-radius:10px;padding:10px 12px}
+    .controls input::placeholder{color:#64748b}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:18px;padding:16px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:992px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+    /* Card */
+    .card{background:var(--card);border:1px solid #232734;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,0,0,.35)}
+    .thumb{aspect-ratio:16/10;object-fit:cover;width:100%}
+    .pad{padding:14px}
+    .title{margin:0 0 8px;font-size:18px;line-height:1.25}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:10px}
+    .excerpt{color:#cbd5e1;font-size:14px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+    .tag{font-size:12px;background:#0b0d13;border:1px solid #2a2f3d;color:#a5b4fc;padding:3px 8px;border-radius:999px}
+    .card a.btn{margin-top:auto;display:inline-block;background:var(--accent);color:#0b0d13;text-decoration:none;padding:10px 12px;border-radius:10px;font-weight:600}
+
+    .status{padding:16px;color:var(--muted)}
+    footer{padding:28px 16px;color:var(--muted);text-align:center;border-top:1px solid #222;margin-top:20px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Blog Cards (Vanilla JavaScript)</h1>
+      <p class="sub">Rendering cards from dummy JSON data with search & sort.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search by title, author or tag…" />
+      <select id="sort">
+        <option value="newest">Sort: Newest</option>
+        <option value="oldest">Sort: Oldest</option>
+        <option value="title">Sort: Title (A–Z)</option>
+      </select>
+    </div>
+
+    <div id="status" class="status">Loading posts…</div>
+    <div id="grid" class="grid" hidden></div>
+  </div>
+
+  <footer>
+    <div class="wrap">Built with plain HTML, CSS & JS – easy to adapt to your project.</div>
+  </footer>
+
+  <script>
+    // ----- Dummy JSON data (could come from an API) -----
+    const dummyPosts = [
+      {
+        id: 1,
+        title: "Getting Started with JavaScript",
+        author: "Ayesha Noor",
+        date: "2025-08-12",
+        tags: ["javascript","basics"],
+        excerpt: "Learn variables, data types, and how to write your first script.",
+        image: "https://picsum.photos/id/1015/800/500"
+      },
+      {
+        id: 2,
+        title: "CSS Grid in 10 Minutes",
+        author: "Bilal Khan",
+        date: "2025-07-21",
+        tags: ["css","layout"],
+        excerpt: "A super quick primer to building responsive grids.",
+        image: "https://picsum.photos/id/1025/800/500"
+      },
+      {
+        id: 3,
+        title: "Understanding Fetch API",
+        author: "Mehak Fatima",
+        date: "2025-06-05",
+        tags: ["javascript","api"],
+        excerpt: "How to make HTTP requests in the browser the modern way.",
+        image: "https://picsum.photos/id/1005/800/500"
+      },
+      {
+        id: 4,
+        title: "Responsive Images Best Practices",
+        author: "Hassan Ali",
+        date: "2025-05-17",
+        tags: ["images","performance"],
+        excerpt: "Serve crisp images without slowing your site down.",
+        image: "https://picsum.photos/id/1003/800/500"
+      },
+      {
+        id: 5,
+        title: "Array Methods You’ll Use Daily",
+        author: "Kiran Shah",
+        date: "2025-04-09",
+        tags: ["javascript","arrays"],
+        excerpt: "Map, filter, reduce… with small, clear examples.",
+        image: "https://picsum.photos/id/1011/800/500"
+      },
+      {
+        id: 6,
+        title: "Writing Accessible HTML",
+        author: "Usman Tariq",
+        date: "2025-03-29",
+        tags: ["html","a11y"],
+        excerpt: "Simple tweaks to make your pages usable for everyone.",
+        image: "https://picsum.photos/id/1035/800/500"
+      }
+    ];
+
+    // ----- Utilities -----
+    const $ = (sel) => document.querySelector(sel);
+    const grid = $("#grid");
+    const status = $("#status");
+    const search = $("#search");
+    const sort = $("#sort");
+
+    function formatDate(iso){
+      const d = new Date(iso);
+      return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    }
+
+    function createCard(post){
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <img class="thumb" src="${post.image}" alt="${post.title}">
+        <div class="pad">
+          <h3 class="title">${post.title}</h3>
+          <div class="meta">
+            <span>By ${post.author}</span>
+            <span>•</span>
+            <span>${formatDate(post.date)}</span>
+          </div>
+          <p class="excerpt">${post.excerpt}</p>
+          <div class="tags">${post.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
+          <a class="btn" href="#" aria-label="Read ${post.title}">Read more</a>
+        </div>`;
+      return card;
+    }
+
+    function render(posts){
+      grid.innerHTML = '';
+      posts.forEach(p => grid.appendChild(createCard(p)));
+    }
+
+    function applyFilters(posts){
+      const q = search.value.trim().toLowerCase();
+      let list = posts.filter(p => 
+        p.title.toLowerCase().includes(q) ||
+        p.author.toLowerCase().includes(q) ||
+        p.tags.some(t => t.toLowerCase().includes(q))
+      );
+      if(sort.value === 'newest') list.sort((a,b)=> new Date(b.date)-new Date(a.date));
+      if(sort.value === 'oldest') list.sort((a,b)=> new Date(a.date)-new Date(b.date));
+      if(sort.value === 'title') list.sort((a,b)=> a.title.localeCompare(b.title));
+      return list;
+    }
+
+    // ----- Simulate async JSON fetch (basic pattern) -----
+    function loadPosts(){
+      return new Promise(resolve => {
+        setTimeout(()=> resolve(dummyPosts), 500); // pretend network delay
+      });
+    }
+
+    // Init
+    (async function init(){
+      try{
+        const posts = await loadPosts();
+        status.hidden = true; grid.hidden = false;
+        render(applyFilters(posts));
+        // live filter
+        search.addEventListener('input', ()=> render(applyFilters(posts)));
+        sort.addEventListener('change', ()=> render(applyFilters(posts)));
+      }catch(err){
+        status.textContent = 'Failed to load posts.';
+        console.error(err);
+      }
+    })();
+
+    async function loadPosts(){
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=6');
+      const raw = await res.json();
+      return raw.map((r,i)=>({
+        id: r.id,
+        title: r.title.replace(/(^.|\s.)/g, m=>m.toUpperCase()),
+        author: 'JSON Placeholder',
+        date: new Date(Date.now()-i*86400000).toISOString().slice(0,10),
+        tags: ['demo','json'],
+        excerpt: r.body,
+        image: `https://picsum.photos/id/${100+i}/800/500`
+      }));
+    }
+    
+  </script>
+</body>
+</html>
