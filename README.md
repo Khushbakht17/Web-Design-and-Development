@@ -15,7 +15,7 @@ https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask6(an
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask6(transition).html
 
-
+https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask7.html
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask8.html
 
