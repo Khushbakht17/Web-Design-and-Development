@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Three Circles Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: white;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    /* Different colors for circles */
+    .circle.red { background: red; }
+    .circle.green { background: green; }
+    .circle.blue { background: blue; }
+
+    /* Using transform and opacity with different timing functions */
+    .circle.red {
+      animation: 
+        move-red 3s infinite cubic-bezier(0.4, 0, 0.6, 1),
+        fade-red 3s infinite ease-in-out;
+    }
+    
+    .circle.green {
+      animation: 
+        move-green 3s infinite cubic-bezier(0.4, 0, 0.6, 1),
+        fade-green 3s infinite ease-in-out;
+    }
+    
+    .circle.blue {
+      animation: 
+        move-blue 3s infinite cubic-bezier(0.4, 0, 0.6, 1),
+        fade-blue 3s infinite ease-in-out;
+    }
+
+    /* Movement animations with offsets */
+    @keyframes move-red {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-100px); }
+    }
+    
+    @keyframes move-green {
+      0%, 16.67% { transform: translateY(0); }
+      50%, 66.67% { transform: translateY(-100px); }
+      100% { transform: translateY(0); }
+    }
+    
+    @keyframes move-blue {
+      0%, 33.33% { transform: translateY(0); }
+      50%, 83.33% { transform: translateY(-100px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Opacity animations with offsets */
+    @keyframes fade-red {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    @keyframes fade-green {
+      0%, 16.67% { opacity: 1; }
+      50%, 66.67% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes fade-blue {
+      0%, 33.33% { opacity: 1; }
+      50%, 83.33% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="circle red"></div>
+  <div class="circle green"></div>
+  <div class="circle blue"></div>
+</body>
+</html>

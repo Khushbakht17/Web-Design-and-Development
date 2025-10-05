@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Circle ↔ Rounded Square Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f8f8f8;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    .container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .shape {
+      width: 120px;
+      height: 120px;
+      background-color: crimson;
+      border-radius: 50%;
+      position: absolute;
+      animation: 
+        moveShape 12s infinite linear,
+        changeAppearance 2s infinite alternate ease-in-out;
+    }
+    
+    /* Movement path using different approach */
+    @keyframes moveShape {
+      0% {
+        left: 0;
+        top: 0;
+      }
+      25% {
+        left: 100%;
+        top: 0;
+        transform: translateX(-100%);
+      }
+      50% {
+        left: 100%;
+        top: 100%;
+        transform: translate(-100%, -100%);
+      }
+      75% {
+        left: 0;
+        top: 100%;
+        transform: translateY(-100%);
+      }
+      100% {
+        left: 0;
+        top: 0;
+      }
+    }
+    
+    /* Morph animation with different implementation */
+    @keyframes changeAppearance {
+      0% {
+        border-radius: 50%;
+        background-color: crimson;
+      }
+      100% {
+        border-radius: 20%;
+        background-color: royalblue;
+      }
+    }
+    
+    /* Visual path indicator */
+    .path {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 2px dashed rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
+    
+    /* Info panel */
+    .info {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 1.5rem;
+    }
+    
+    p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="path"></div>
+    <div class="shape"></div>
+    <div class="info">
+      <h1>Shape Morph Animation</h1>
+      <p>Circle ↔ Rounded Square with Square Path Movement</p>
+    </div>
+  </div>
+</body>
+</html>
