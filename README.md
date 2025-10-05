@@ -13,3 +13,4 @@ https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask5.ht
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask6(animation).html
 
+https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask6(transition).html
