@@ -21,7 +21,3 @@ https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask8.ht
 
 https://raw.githack.com/Khushbakht17/Web-Design-and-Development/main/Labtask9.html
 
-
-https://raw.githack.com/Khushbakht17/Web-Design-and-Development/tree/main/Labtask11(student_db)
-
-
