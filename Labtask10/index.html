@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katora − Bootstrap Multipurpose Shopping Template</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/fav.png" />
+
+    <style>
+      body {
+        padding-top: 50px;
+      }
+
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .tag_line {
+        margin: 0px !important;
+        border: none !important;
+        background-color: rgb(179, 135, 65) !important;
+        height: 50px;
+        border-radius: 0px !important;
+        box-sizing: border-box;
+        direction: ltr;
+        display: block;
+        font-family: Montserrat-Regular, sans-serif;
+        letter-spacing: 1px;
+        line-height: 21px;
+        min-height: 50px;
+        text-size-adjust: 100%;
+      }
+
+      .pro_description {
+        color: #fff;
+        font-size: 20px;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .top-bar {
+        font-size: 14px;
+        /* small text like in screenshot */
+        background-color: #2c2c2c !important;
+        /* black/dark background */
+      }
+
+      .top-bar .dropdown-toggle::after {
+        margin-left: 4px;
+        /* small gap for dropdown arrow */
+        font-size: 10px;
+      }
+
+      .top-bar a {
+        color: #fff;
+      }
+
+      .top-bar a:hover {
+        color: #d4af37;
+        /* golden hover color to match your theme */
+      }
+
+      /* Header Styling */
+      .header {
+        border-bottom: 1px solid #eee;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        width: 80%;
+      }
+
+      .category-select {
+        max-width: 160px;
+        height: 50px !important;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        border-right: none !important;
+        border-radius: 0px !important;
+        font-size: 14px !important;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .search-input {
+        flex: 1;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-right: none;
+        height: 50px !important;
+        border-left: none !important;
+        border-radius: 0px !important;
+        font-size: 14px !important;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .btn-search {
+        background-color: #c49a5d !important;
+        /* golden like in your image */
+        color: #fff !important;
+        border-radius: 0;
+        border: 1px solid #c49a5d;
+        height: 50px !important;
+        border-left: none !important;
+        border-radius: 0px !important;
+        width: 50px;
+      }
+
+      .btn-search:hover {
+        background-color: #a67c41;
+      }
+
+      .badge {
+        background-color: #c49a5d !important;
+        font-size: 0.7rem;
+        border-radius: 50%;
+        padding: 4px 6px;
+      }
+
+      .navbar {
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #000000;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .nav-item .badge-new {
+        background-color: #b88b4a;
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 5px;
+        border-radius: 3px;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .breadcrumb-section {
+        background: #f5f5f5;
+        padding: 15px 20px;
+        font-size: 15px;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      .breadcrumb a:hover {
+        color: #c49a5d;
+        text-decoration: none;
+      }
+
+      /* Heading */
+      .pro-heading-title {
+        padding-top: 75px;
+      }
+
+      .pro-heading-title h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      /* Top Filter Bar */
+      .top-bar2 {
+        border: 1px solid #ddd;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        background: #fff;
+      }
+
+      .top-bar2 label {
+        font-weight: 500;
+        margin-right: 8px;
+      }
+
+      .top-bar2 select {
+        border: none;
+        background: transparent;
+        font-size: 14px;
+        margin-left: 5px;
+        padding: 2px 4px;
+      }
+
+      .top-bar2 select:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* Display Icons */
+      .display-icons a {
+        font-size: 16px;
+        color: #000;
+        margin-left: 10px;
+      }
+
+      .display-icons a.active {
+        color: #c49a6c;
+        /* gold highlight */
+      }
+
+      /* Dropdown Groups */
+      .filter-group {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .filter-group .form-group {
+        display: flex;
+        align-items: center;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .product {
+        background: #fff;
+        padding-top: 30px;
+        flex: 1 1 calc(25% - 20px);
+        box-sizing: border-box;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .pro-thumb {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pro-thumb img {
+        width: 100%;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .pro-thumb:hover .pro-image-hover {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .pro-image-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+
+      .pro-description {
+        margin-top: 10px;
+      }
+
+      .pro-info {
+        font-size: 15px;
+        color: #666;
+        font-family: "Montserrat-Regular";
+      }
+
+      .pro-title {
+        font-size: 17px;
+        font-weight: 600;
+        margin: 5px 0;
+      }
+
+      .pro-title a {
+        color: #000;
+        text-decoration: none;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .pro-price ins {
+        color: rgb(179, 135, 65);
+        font-weight: 700;
+        margin-right: 19px !important;
+        text-decoration: none;
+        font-family: "Montserrat-Bold", sans-serif;
+        font-size: 19px;
+      }
+
+      .pro-price del {
+        color: #999;
+        font-size: 19px;
+        margin-right: 5px;
+      }
+
+      /* Sale Tag */
+      .pro-tag {
+        background: #c33;
+        color: #fff;
+        font-size: 12px;
+        padding: 3px 12px;
+        position: absolute;
+        top: 37px;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 234;
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .product {
+          flex: 1 1 calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 575px) {
+        .product {
+          flex: 1 1 100%;
+        }
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #eaeaea;
+        padding: 4px 10px;
+        padding-left: 10px !important;
+        margin: 10px 0px;
+      }
+
+      .pagination label {
+        font-size: 15px;
+        color: #555;
+        margin: 0;
+      }
+
+      .loader-page {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        justify-content: end;
+      }
+
+      .loader-page-item a {
+        display: block;
+        padding: 2px 6px;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #ddd;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .loader-page-item a:hover,
+      .loader-page-item.active a {
+        color: rgb(179, 135, 65);
+        border-color: #b6b6b6;
+      }
+
+      .mainfooter {
+        background-color: #f8f9fa;
+      }
+
+      /* Newsletter Section */
+      .footer-top-content {
+        background-color: rgb(248, 249, 250) !important;
+        box-sizing: border-box;
+        padding: 100px 0px 100px;
+        margin: 100px 0px 100px;
+        border-bottom-color: rgb(221, 221, 221);
+        border-bottom: 1px solid rgb(211, 211, 211);
+      }
+
+      .footer-top-content h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .footer-top-content p {
+        font-size: 14px;
+        color: #777;
+        margin: 0;
+      }
+
+      .footer-top-content .search {
+        display: flex;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .footer-top-content input {
+        flex: 1;
+        border: none;
+        padding: 10px 12px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .footer-top-content button {
+        background: rgb(179, 135, 65);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .footer-top-content button:hover {
+        background: #c33;
+      }
+
+      /* Footer */
+      .footer-area {
+        border-top: 1px solid #eaeaea;
+        color: #444;
+      }
+
+      .single-footer {
+        overflow: hidden;
+      }
+
+      .single-footer h5 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-family: "Montserrat-Bold", sans-serif;
+        text-transform: capitalize;
+      }
+
+      .single-footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .single-footer ul li {
+        margin-bottom: 8px;
+      }
+
+      .single-footer ul li a {
+        color: #666;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .single-footer ul li a:hover {
+        color: #c33;
+      }
+
+      /* Footer Bottom */
+      .copyright-content {
+        background-color: rgb(248, 249, 250) !important;
+        text-align: center;
+      }
+
+      .footer-info {
+        font-size: 13px;
+        color: #777;
+        padding: 50px 0px;
+      }
+
+      .footer-info a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: color 0.3s;
+      }
+
+      .footer-info a:hover {
+        color: #c33;
+      }
+    </style>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- 1. Announcement bar -->
+    <div
+      class="alert alert-warning alert-dismissible fade show fixed-top text-center tag_line"
+      role="alert"
+    >
+      <div class="pro_description">
+        Get <strong>UPTO 40% OFF</strong> on your 1st order —
+        <a href="#" class="alert-link text-white fw-bold">More details</a>
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white float-end me-3"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- Top utility bar (below announcement) -->
+    <div class="top-bar bg-dark text-white py-1">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Left side: Language & Currency -->
+        <div class="d-flex">
+          <div class="dropdown me-3">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              English
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">English</a></li>
+              <li><a class="dropdown-item" href="#">French</a></li>
+              <li><a class="dropdown-item" href="#">German</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              USD
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">USD</a></li>
+              <li><a class="dropdown-item" href="#">EUR</a></li>
+              <li><a class="dropdown-item" href="#">PKR</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right side: Welcome User & My Account -->
+        <div class="d-flex">
+          <span class="me-3">Welcome User</span>
+          <div class="dropdown">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              My Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Orders</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header bg-white py-4 shadow-sm">
+      <div class="container">
+        <div class="row align-items-center gx-5">
+          <!-- Logo -->
+          <div class="col-12 col-lg-2 text-center text-lg-left mb-2 mb-lg-0">
+            <a href="index.html" class="navbar-brand">
+              <img
+                src="images/logo.png"
+                alt="Logo"
+                class="img-fluid"
+                style="width: 80%"
+              />
+            </a>
+          </div>
+
+          <!-- Search Bar -->
+          <div
+            class="col-12 col-lg-8 mb-2 mb-lg-0 justify-content-center d-flex"
+          >
+            <form class="d-flex search-bar">
+              <!-- Category Dropdown -->
+              <select class="form-select category-select">
+                <option selected>All Categories</option>
+                <option>Rings</option>
+                <option>Earrings</option>
+                <option>Crowns</option>
+                <option>Necklace</option>
+                <option>Bracelet</option>
+                <option>Anklet</option>
+                <option>Hairpin</option>
+                <option>Bangle</option>
+              </select>
+              <!-- Search Input -->
+              <input
+                class="form-control search-input"
+                type="search"
+                placeholder="Search Products..."
+              />
+              <button class="btn btn-search" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Wishlist & Cart -->
+          <div class="col-12 col-lg-2 text-center text-lg-right">
+            <ul class="list-inline mb-0">
+              <!-- Wishlist -->
+              <li class="list-inline-item me-3">
+                <a href="wishlist.html" class="btn position-relative">
+                  <i class="far fa-heart fa-lg"></i>
+                  <span
+                    class="badge position-absolute top-0 start-100 translate-middle"
+                    >3</span
+                  >
+                </a>
+              </li>
+              <!-- Cart -->
+              <li class="list-inline-item">
+                <a href="cart.html" class="btn position-relative">
+                  <i class="fas fa-shopping-cart fa-lg"></i>
+                  <span
+                    class="badge position-absolute top-0 start-100 translate-middle"
+                    >2</span
+                  >
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown position-relative">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="homeDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Home 1</a></li>
+                <li><a class="dropdown-item" href="#">Home 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown position-relative">
+              <span class="badge-new">NEW</span>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="megaDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Mega Menu
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Option 1</a></li>
+                <li><a class="dropdown-item" href="#">Option 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Shop
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Shop 1</a></li>
+                <li><a class="dropdown-item" href="#">Shop 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Product
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Product 1</a></li>
+                <li><a class="dropdown-item" href="#">Product 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pages
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Contact</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Shop Heading -->
+      <div class="row">
+        <div class="pro-heading-title">
+          <h1>Shop Page</h1>
+        </div>
+      </div>
+
+      <!-- Top Filter Bar -->
+      <div class="top-bar2">
+        <!-- Left: Display icons -->
+        <div class="d-flex align-items-center">
+          <label>Display</label>
+          <div class="display-icons">
+            <a href="javascript:void(0);" class="fas fa-th-large active"></a>
+            <a href="javascript:void(0);" class="fas fa-list"></a>
+          </div>
+        </div>
+
+        <!-- Middle: Category / Price / Size -->
+        <div class="filter-group">
+          <div class="form-group">
+            <label>Category</label>
+            <select>
+              <option>Necklace</option>
+              <option>Earrings</option>
+              <option>Crowns</option>
+              <option>Rings</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <select>
+              <option>$1001-$2500</option>
+              <option>$501-$1000</option>
+              <option>0-$500</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Size</label>
+            <select>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Small</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Right: Sort & Items -->
+        <div class="filter-group">
+          <div class="form-group">
+            <label>Sort by</label>
+            <select>
+              <option selected>Popular</option>
+              <option>Newest</option>
+              <option>Offers</option>
+              <option>Old</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Items</label>
+            <select>
+              <option selected>08</option>
+              <option>20</option>
+              <option>16</option>
+              <option>12</option>
+              <option>04</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Product 1 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-thumb">
+              <a href="product-page1.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_01.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_01_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Ring Collection</span>
+              <h2 class="pro-title">
+                <a href="product-page1.html">Austrian Crystals Wedding Ring</a>
+              </h2>
+              <div class="pro-price"><ins>$285</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-tag">Sale</div>
+            <div class="pro-thumb">
+              <a href="product-page2.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_02.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_02_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Earrings</span>
+              <h2 class="pro-title">
+                <a href="product-page2.html">Crystal Water Drop Earrings</a>
+              </h2>
+              <div class="pro-price"><del>$450</del><ins>$285</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-tag">Sale</div>
+            <div class="pro-thumb">
+              <a href="product-page3.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_03.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_03_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Necklace</span>
+              <h2 class="pro-title">
+                <a href="product-page3.html">Luxury Pearl Crystal Necklace</a>
+              </h2>
+              <div class="pro-price"><del>$600</del><ins>$420</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-thumb">
+              <a href="product-page4.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_04.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_04_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Crowns</span>
+              <h2 class="pro-title">
+                <a href="product-page4.html">Golden Wedding Tiara Crown</a>
+              </h2>
+              <div class="pro-price"><ins>$350</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-thumb">
+              <a href="product-page5.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_05.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_05_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Bracelet</span>
+              <h2 class="pro-title">
+                <a href="product-page5.html">Diamond Crystal Charm Bracelet</a>
+              </h2>
+              <div class="pro-price"><del>$200</del><ins>$150</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-tag" style="background-color: rgb(71, 154, 241)">
+              NEW
+            </div>
+            <div class="pro-thumb">
+              <a href="product-page6.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_06.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_06_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Anklet</span>
+              <h2 class="pro-title">
+                <a href="product-page6.html">Silver Crystal Wedding Anklet</a>
+              </h2>
+              <div class="pro-price"><ins>$175</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-tag" style="background-color: rgb(40, 167, 69)">
+              FEATURE
+            </div>
+            <div class="pro-thumb">
+              <a href="product-page7.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_07.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_07_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Ring</span>
+              <h2 class="pro-title">
+                <a href="product-page7.html">Royal Crystal Engagement Ring</a>
+              </h2>
+              <div class="pro-price"><del>$500</del><ins>$375</ins></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product">
+            <div class="pro-tag" style="background-color: rgb(71, 154, 241)">
+              NEW
+            </div>
+            <div class="pro-thumb">
+              <a href="product-page8.html">
+                <span class="pro-image"
+                  ><img src="assets/product_image_08.jpg" alt="Product"
+                /></span>
+                <span class="pro-image-hover"
+                  ><img src="assets/product_image_08_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="pro-description">
+              <span class="pro-info">Tiara</span>
+              <h2 class="pro-title">
+                <a href="product-page8.html">Crystal Queen Wedding Tiara</a>
+              </h2>
+              <div class="pro-price"><ins>$450</ins></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination justify-content-between">
+        <label class="col-form-label"
+          >Showing 1–<span class="showing_record">1</span>&nbsp;of&nbsp;<span
+            class="showing_total_record"
+            >23</span
+          >&nbsp;results.</label
+        >
+        <div class="col-12 col-sm-6">
+          <ol class="loader-page">
+            <li class="loader-page-item">
+              <a href="#">
+                <i class="fa fa-angle-double-left" style="font-size: 12px"></i
+              ></a>
+            </li>
+            <li class="loader-page-item"><a href="#">1</a></li>
+            <li class="loader-page-item"><a href="#">2</a></li>
+            <li class="loader-page-item"><a href="#">3</a></li>
+            <li class="loader-page-item"><a href="#">4</a></li>
+            <li class="loader-page-item">
+              <a href="#">
+                <i class="fa fa-angle-double-right" style="font-size: 12px"></i
+              ></a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      id="footerThree"
+      class="footer-area footer-three footer-desktop d-none d-lg-block d-xl-block"
+    >
+      <div class="container-fluid p-0 mainfooter">
+        <div class="container">
+          <div class="footer-top-content">
+            <div class="hr-line">
+              <div class="row align-items-center">
+                <div class="col-12 col-lg-7">
+                  <h4>SIGN UP FOR NEWSLETTER &amp; GET ALL UPDATES</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, sed do eiusmod tempor incdidunt
+                    ut labore et.
+                  </p>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <form class="form-inline">
+                    <div class="search">
+                      <input type="search" placeholder="Your Email ..." />
+                      <button
+                        class="btn btn-secondary swipe-to-top"
+                        type="submit"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row p-0">
+            <div class="col-12 col-lg-4">
+              <div class="single-footer">
+                <div class="pro-about">
+                  <h5>Store</h5>
+                  <ul class="pl-0 mb-0">
+                    <li>
+                      <a
+                        href="index.html"
+                        class="logo"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title=""
+                        data-original-title="logo"
+                      >
+                        <img
+                          class="img-fuild"
+                          src="images/logo.png"
+                          alt="logo here"
+                          class="img-fluid"
+                          style="width: 30%; padding-bottom: 10px"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <span
+                        >1223, Main Street, Anytown New York, 38000 USA</span
+                      >
+                    </li>
+                    <li>
+                      <span>888 - 963 - 600</span
+                      ><span><a href="#">info@example.com</a> </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+              <div class="single-footer">
+                <h5>Info</h5>
+                <ul class="pl-0 mb-0">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="blog-page1.html">Blog</a></li>
+                  <li><a href="about-page1.html">About Us</a></li>
+                  <li><a href="contact-page1.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2">
+              <div class="single-footer">
+                <h5>Our Polices</h5>
+                <ul class="pl-0 mb-0">
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="refund.html">Refund Policy</a></li>
+                  <li><a href="term.html">Terms of Service</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2">
+              <div class="single-footer">
+                <h5>My Account</h5>
+                <ul class="pl-0 mb-0">
+                  <li><a href="shop-page1.html">Shop</a></li>
+                  <li><a href="orders.html">Orders</a></li>
+                  <li><a href="cart-page1.html">Shopping Cart</a></li>
+                  <li><a href="wishlist.html">Wishlist</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2 p-0">
+              <div class="single-footer">
+                <h5>Social Network</h5>
+                <ul class="pl-0 mb-0">
+                  <li><a href="shop-page1.html">Facebook</a></li>
+                  <li><a href="orders.html">Twitter</a></li>
+                  <li><a href="cart-page1.html">Instagram </a></li>
+                  <li><a href="wishlist.html">Linkedin</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid p-0">
+        <div class="copyright-content">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-12 col-sm-12">
+                <div class="footer-info">
+                  ©&nbsp;2019 Company, Inc.
+                  <a href="privacy.html">Privacy</a>&nbsp;•&nbsp;<a
+                    href="term.html"
+                    >Terms</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .querySelector(".btn-close-discount")
+        .addEventListener("click", function () {
+          document.querySelector(".discount-bar").style.display = "none";
+          document.body.style.setProperty("padding-top", "0", "important");
+        });
+    </script>
+  </body>
+</html>
