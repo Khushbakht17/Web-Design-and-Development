@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>City Explorer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">City Explorer</a>
+      <span class="navbar-text text-white">Search cities · Timezone · Map</span>
+    </div>
+  </nav>
+  <main class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <form id="searchForm" class="row g-2">
+              <div class="col-sm-9">
+                <input id="cityInput" class="form-control" type="text" placeholder="Enter city name (e.g., Tokyo)" required>
+              </div>
+              <div class="col-sm-3 d-grid">
+                <button class="btn btn-primary" type="submit">Explore</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="alertPlaceholder"></div>
+        <div id="resultArea" style="display:none;">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 id="cityTitle"></h5>
+              <p><strong>Country:</strong> <span id="countryText"></span></p>
+              <p><strong>Coordinates:</strong> <span id="coords"></span></p>
+              <p><strong>Timezone:</strong> <span id="timezone"></span></p>
+              <p><strong>Population:</strong> <span id="population">—</span></p>
+              <div id="mapContainer" class="mb-2" style="height:300px;"></div>
+              <pre id="rawData" style="max-height:220px; overflow:auto; background:#f8f9fa; padding:10px;"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-center py-3 mt-4">
+    <small class="text-muted">City Explorer • OpenCage API</small>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
