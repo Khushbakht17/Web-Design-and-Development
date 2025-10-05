@@ -1,163 +1,1244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katora - Online Shopping Store</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1607083207874-2b1f0c1d23d5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 90vh;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .product-card {
-      transition: all 0.3s ease;
-    }
-    .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    .footer {
-      background-color: #222;
-      color: white;
-      padding: 30px 0;
-    }
-  </style>
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katora − Premium Shopping Experience</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/fav.png" />
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-success" href="#">Katora<span class="text-dark">Shop</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-success ms-3" href="#"><i class="bi bi-cart-fill"></i> Cart</a></li>
-        </ul>
+    <style>
+      body {
+        padding-top: 50px;
+      }
+
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .promo-banner {
+        margin: 0px !important;
+        border: none !important;
+        background-color: rgb(179, 135, 65) !important;
+        height: 50px;
+        border-radius: 0px !important;
+        box-sizing: border-box;
+        direction: ltr;
+        display: block;
+        font-family: Montserrat-Regular, sans-serif;
+        letter-spacing: 1px;
+        line-height: 21px;
+        min-height: 50px;
+        text-size-adjust: 100%;
+      }
+
+      .promo-text {
+        color: #fff;
+        font-size: 20px;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .utility-nav {
+        font-size: 14px;
+        background-color: #2c2c2c !important;
+      }
+
+      .utility-nav .dropdown-toggle::after {
+        margin-left: 4px;
+        font-size: 10px;
+      }
+
+      .utility-nav a {
+        color: #fff;
+      }
+
+      .utility-nav a:hover {
+        color: #d4af37;
+      }
+
+      /* Header Styling */
+      .main-header {
+        border-bottom: 1px solid #eee;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        width: 80%;
+      }
+
+      .category-dropdown {
+        max-width: 160px;
+        height: 50px !important;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        border-right: none !important;
+        border-radius: 0px !important;
+        font-size: 14px !important;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .search-field {
+        flex: 1;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-right: none;
+        height: 50px !important;
+        border-left: none !important;
+        border-radius: 0px !important;
+        font-size: 14px !important;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .search-btn {
+        background-color: #c49a5d !important;
+        color: #fff !important;
+        border-radius: 0;
+        border: 1px solid #c49a5d;
+        height: 50px !important;
+        border-left: none !important;
+        border-radius: 0px !important;
+        width: 50px;
+      }
+
+      .search-btn:hover {
+        background-color: #a67c41;
+      }
+
+      .cart-badge {
+        background-color: #c49a5d !important;
+        font-size: 0.7rem;
+        border-radius: 50%;
+        padding: 4px 6px;
+      }
+
+      .main-navbar {
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .main-navbar .nav-link {
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #000000;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .nav-item .new-badge {
+        background-color: #b88b4a;
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 5px;
+        border-radius: 3px;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .breadcrumb-container {
+        background: #f5f5f5;
+        padding: 15px 20px;
+        font-size: 15px;
+        font-family: "Montserrat-Regular", sans-serif;
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      .breadcrumb a:hover {
+        color: #c49a5d;
+        text-decoration: none;
+      }
+
+      /* Heading */
+      .page-title {
+        padding-top: 75px;
+      }
+
+      .page-title h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      /* Top Filter Bar */
+      .filter-bar {
+        border: 1px solid #ddd;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        background: #fff;
+      }
+
+      .filter-bar label {
+        font-weight: 500;
+        margin-right: 8px;
+      }
+
+      .filter-bar select {
+        border: none;
+        background: transparent;
+        font-size: 14px;
+        margin-left: 5px;
+        padding: 2px 4px;
+      }
+
+      .filter-bar select:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* Display Icons */
+      .view-options a {
+        font-size: 16px;
+        color: #000;
+        margin-left: 10px;
+      }
+
+      .view-options a.active {
+        color: #c49a6c;
+      }
+
+      /* Filter Groups */
+      .filter-group-container {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .filter-group-container .filter-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .product-grid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .product-card {
+        background: #fff;
+        padding-top: 30px;
+        flex: 1 1 calc(25% - 20px);
+        box-sizing: border-box;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .product-image {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 100%;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .product-image:hover .product-image-hover {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .product-image-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+
+      .product-details {
+        margin-top: 10px;
+      }
+
+      .product-category {
+        font-size: 15px;
+        color: #666;
+        font-family: "Montserrat-Regular";
+      }
+
+      .product-name {
+        font-size: 17px;
+        font-weight: 600;
+        margin: 5px 0;
+      }
+
+      .product-name a {
+        color: #000;
+        text-decoration: none;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .product-price current-price {
+        color: rgb(179, 135, 65);
+        font-weight: 700;
+        margin-right: 19px !important;
+        text-decoration: none;
+        font-family: "Montserrat-Bold", sans-serif;
+        font-size: 19px;
+      }
+
+      .product-price original-price {
+        color: #999;
+        font-size: 19px;
+        margin-right: 5px;
+      }
+
+      /* Sale Tag */
+      .product-tag {
+        background: #c33;
+        color: #fff;
+        font-size: 12px;
+        padding: 3px 12px;
+        position: absolute;
+        top: 37px;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 234;
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .product-card {
+          flex: 1 1 calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 575px) {
+        .product-card {
+          flex: 1 1 100%;
+        }
+      }
+
+      /* Pagination */
+      .pagination-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #eaeaea;
+        padding: 4px 10px;
+        padding-left: 10px !important;
+        margin: 10px 0px;
+      }
+
+      .pagination-container label {
+        font-size: 15px;
+        color: #555;
+        margin: 0;
+      }
+
+      .pagination-list {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        justify-content: end;
+      }
+
+      .pagination-item a {
+        display: block;
+        padding: 2px 6px;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #ddd;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .pagination-item a:hover,
+      .pagination-item.active a {
+        color: rgb(179, 135, 65);
+        border-color: #b6b6b6;
+      }
+
+      .footer-container {
+        background-color: #f8f9fa;
+      }
+
+      /* Newsletter Section */
+      .newsletter-section {
+        background-color: rgb(248, 249, 250) !important;
+        box-sizing: border-box;
+        padding: 100px 0px 100px;
+        margin: 100px 0px 100px;
+        border-bottom-color: rgb(221, 221, 221);
+        border-bottom: 1px solid rgb(211, 211, 211);
+      }
+
+      .newsletter-section h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+
+      .newsletter-section p {
+        font-size: 14px;
+        color: #777;
+        margin: 0;
+      }
+
+      .newsletter-section .newsletter-form {
+        display: flex;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .newsletter-section input {
+        flex: 1;
+        border: none;
+        padding: 10px 12px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .newsletter-section button {
+        background: rgb(179, 135, 65);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .newsletter-section button:hover {
+        background: #c33;
+      }
+
+      /* Footer */
+      .footer-main {
+        border-top: 1px solid #eaeaea;
+        color: #444;
+      }
+
+      .footer-column {
+        overflow: hidden;
+      }
+
+      .footer-column h5 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-family: "Montserrat-Bold", sans-serif;
+        text-transform: capitalize;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 8px;
+      }
+
+      .footer-column ul li a {
+        color: #666;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .footer-column ul li a:hover {
+        color: #c33;
+      }
+
+      /* Footer Bottom */
+      .copyright-section {
+        background-color: rgb(248, 249, 250) !important;
+        text-align: center;
+      }
+
+      .copyright-text {
+        font-size: 13px;
+        color: #777;
+        padding: 50px 0px;
+      }
+
+      .copyright-text a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: color 0.3s;
+      }
+
+      .copyright-text a:hover {
+        color: #c33;
+      }
+    </style>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- 1. Announcement bar -->
+    <div
+      class="alert alert-warning alert-dismissible fade show fixed-top text-center promo-banner"
+      role="alert"
+    >
+      <div class="promo-text">
+        Get <strong>UPTO 40% OFF</strong> on your 1st order —
+        <a href="#" class="alert-link text-white fw-bold">More details</a>
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white float-end me-3"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- Top utility bar (below announcement) -->
+    <div class="utility-nav bg-dark text-white py-1">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Left side: Language & Currency -->
+        <div class="d-flex">
+          <div class="dropdown me-3">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              English
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">English</a></li>
+              <li><a class="dropdown-item" href="#">French</a></li>
+              <li><a class="dropdown-item" href="#">German</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              USD
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">USD</a></li>
+              <li><a class="dropdown-item" href="#">EUR</a></li>
+              <li><a class="dropdown-item" href="#">PKR</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right side: Welcome User & My Account -->
+        <div class="d-flex">
+          <span class="me-3">Welcome User</span>
+          <div class="dropdown">
+            <a
+              class="text-white text-decoration-none dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+            >
+              My Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Orders</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="display-3 fw-bold">Welcome to Katora</h1>
-      <p class="lead mb-4">Shop the latest trends and best deals in one place</p>
-      <a href="#shop" class="btn btn-success btn-lg">Shop Now</a>
-    </div>
-  </section>
+    <!-- Header Section -->
+    <div class="main-header bg-white py-4 shadow-sm">
+      <div class="container">
+        <div class="row align-items-center gx-5">
+          <!-- Logo -->
+          <div class="col-12 col-lg-2 text-center text-lg-left mb-2 mb-lg-0">
+            <a href="index.html" class="navbar-brand">
+              <img
+                src="images/logo.png"
+                alt="Logo"
+                class="img-fluid"
+                style="width: 80%"
+              />
+            </a>
+          </div>
 
-  <!-- Shop Section -->
-  <section id="shop" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 fw-bold">Our Popular Products</h2>
-      <div class="row g-4">
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="https://images.unsplash.com/photo-1606813902794-0b8a6c835f38?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Product 1">
-            <div class="card-body text-center">
-              <h5 class="card-title">Ceramic Bowl</h5>
-              <p class="text-muted">$12.99</p>
-              <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
-            </div>
+          <!-- Search Bar -->
+          <div
+            class="col-12 col-lg-8 mb-2 mb-lg-0 justify-content-center d-flex"
+          >
+            <form class="d-flex search-container">
+              <!-- Category Dropdown -->
+              <select class="form-select category-dropdown">
+                <option selected>All Categories</option>
+                <option>Rings</option>
+                <option>Earrings</option>
+                <option>Crowns</option>
+                <option>Necklace</option>
+                <option>Bracelet</option>
+                <option>Anklet</option>
+                <option>Hairpin</option>
+                <option>Bangle</option>
+              </select>
+              <!-- Search Input -->
+              <input
+                class="form-control search-field"
+                type="search"
+                placeholder="Search Products..."
+              />
+              <button class="btn search-btn" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="https://images.unsplash.com/photo-1602526211938-18e8e506b6f9?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Product 2">
-            <div class="card-body text-center">
-              <h5 class="card-title">Wooden Spoon Set</h5>
-              <p class="text-muted">$8.49</p>
-              <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Product 3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Clay Pot</h5>
-              <p class="text-muted">$10.25</p>
-              <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card product-card">
-            <img src="https://images.unsplash.com/photo-1590080875832-98a31d7e8290?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Product 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Steel Utensil Set</h5>
-              <p class="text-muted">$15.00</p>
-              <a href="#" class="btn btn-outline-success btn-sm">Add to Cart</a>
-            </div>
+
+          <!-- Wishlist & Cart -->
+          <div class="col-12 col-lg-2 text-center text-lg-right">
+            <ul class="list-inline mb-0">
+              <!-- Wishlist -->
+              <li class="list-inline-item me-3">
+                <a href="wishlist.html" class="btn position-relative">
+                  <i class="far fa-heart fa-lg"></i>
+                  <span
+                    class="cart-badge position-absolute top-0 start-100 translate-middle"
+                    >3</span
+                  >
+                </a>
+              </li>
+              <!-- Cart -->
+              <li class="list-inline-item">
+                <a href="cart.html" class="btn position-relative">
+                  <i class="fas fa-shopping-cart fa-lg"></i>
+                  <span
+                    class="cart-badge position-absolute top-0 start-100 translate-middle"
+                    >2</span
+                  >
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- About -->
-  <section id="about" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-3">About Katora</h2>
-      <p class="text-muted mx-auto" style="max-width: 700px;">
-        Katora is your one-stop online shop for kitchenware and home essentials. We bring you stylish, eco-friendly, and high-quality products at the best prices.
-      </p>
+    <!-- Navbar -->
+    <nav class="main-navbar navbar navbar-expand-lg bg-white">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown position-relative">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="homeDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Home 1</a></li>
+                <li><a class="dropdown-item" href="#">Home 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown position-relative">
+              <span class="new-badge">NEW</span>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="megaDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Mega Menu
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Option 1</a></li>
+                <li><a class="dropdown-item" href="#">Option 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Shop
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Shop 1</a></li>
+                <li><a class="dropdown-item" href="#">Shop 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Product
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Product 1</a></li>
+                <li><a class="dropdown-item" href="#">Product 2</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pages
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Contact</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+          </ol>
+        </nav>
+      </div>
     </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-5">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-3">Get in Touch</h2>
-      <p class="text-muted">Have questions? We’d love to hear from you.</p>
-      <a href="mailto:support@katora.com" class="btn btn-success"><i class="bi bi-envelope-fill"></i> Contact Us</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer text-center">
     <div class="container">
-      <p class="mb-1">© 2025 KatoraShop. All rights reserved.</p>
-      <p class="mb-0">
-        <a href="#" class="text-success text-decoration-none"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-success text-decoration-none mx-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-success text-decoration-none"><i class="bi bi-twitter"></i></a>
-      </p>
-    </div>
-  </footer>
+      <!-- Shop Heading -->
+      <div class="row">
+        <div class="page-title">
+          <h1>Shop Page</h1>
+        </div>
+      </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+      <!-- Top Filter Bar -->
+      <div class="filter-bar">
+        <!-- Left: Display icons -->
+        <div class="d-flex align-items-center">
+          <label>Display</label>
+          <div class="view-options">
+            <a href="javascript:void(0);" class="fas fa-th-large active"></a>
+            <a href="javascript:void(0);" class="fas fa-list"></a>
+          </div>
+        </div>
+
+        <!-- Middle: Category / Price / Size -->
+        <div class="filter-group-container">
+          <div class="filter-item">
+            <label>Category</label>
+            <select>
+              <option>Necklace</option>
+              <option>Earrings</option>
+              <option>Crowns</option>
+              <option>Rings</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Price</label>
+            <select>
+              <option>$1001-$2500</option>
+              <option>$501-$1000</option>
+              <option>0-$500</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Size</label>
+            <select>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Small</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Right: Sort & Items -->
+        <div class="filter-group-container">
+          <div class="filter-item">
+            <label>Sort by</label>
+            <select>
+              <option selected>Popular</option>
+              <option>Newest</option>
+              <option>Offers</option>
+              <option>Old</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Items</label>
+            <select>
+              <option selected>08</option>
+              <option>20</option>
+              <option>16</option>
+              <option>12</option>
+              <option>04</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-image">
+              <a href="product-page1.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_01.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_01_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Ring Collection</span>
+              <h2 class="product-name">
+                <a href="product-page1.html">Austrian Crystals Wedding Ring</a>
+              </h2>
+              <div class="product-price"><span class="current-price">$285</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-tag">Sale</div>
+            <div class="product-image">
+              <a href="product-page2.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_02.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_02_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Earrings</span>
+              <h2 class="product-name">
+                <a href="product-page2.html">Crystal Water Drop Earrings</a>
+              </h2>
+              <div class="product-price"><span class="original-price">$450</span><span class="current-price">$285</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-tag">Sale</div>
+            <div class="product-image">
+              <a href="product-page3.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_03.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_03_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Necklace</span>
+              <h2 class="product-name">
+                <a href="product-page3.html">Luxury Pearl Crystal Necklace</a>
+              </h2>
+              <div class="product-price"><span class="original-price">$600</span><span class="current-price">$420</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-image">
+              <a href="product-page4.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_04.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_04_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Crowns</span>
+              <h2 class="product-name">
+                <a href="product-page4.html">Golden Wedding Tiara Crown</a>
+              </h2>
+              <div class="product-price"><span class="current-price">$350</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-image">
+              <a href="product-page5.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_05.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_05_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Bracelet</span>
+              <h2 class="product-name">
+                <a href="product-page5.html">Diamond Crystal Charm Bracelet</a>
+              </h2>
+              <div class="product-price"><span class="original-price">$200</span><span class="current-price">$150</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-tag" style="background-color: rgb(71, 154, 241)">
+              NEW
+            </div>
+            <div class="product-image">
+              <a href="product-page6.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_06.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_06_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Anklet</span>
+              <h2 class="product-name">
+                <a href="product-page6.html">Silver Crystal Wedding Anklet</a>
+              </h2>
+              <div class="product-price"><span class="current-price">$175</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-tag" style="background-color: rgb(40, 167, 69)">
+              FEATURE
+            </div>
+            <div class="product-image">
+              <a href="product-page7.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_07.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_07_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Ring</span>
+              <h2 class="product-name">
+                <a href="product-page7.html">Royal Crystal Engagement Ring</a>
+              </h2>
+              <div class="product-price"><span class="original-price">$500</span><span class="current-price">$375</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          style="
+            width: 285px;
+            height: 458.266px;
+            padding-left: 9px;
+            padding-right: 9px;
+          "
+        >
+          <div class="product-card">
+            <div class="product-tag" style="background-color: rgb(71, 154, 241)">
+              NEW
+            </div>
+            <div class="product-image">
+              <a href="product-page8.html">
+                <span class="product-image-main"
+                  ><img src="assets/product_image_08.jpg" alt="Product"
+                /></span>
+                <span class="product-image-hover"
+                  ><img src="assets/product_image_08_02.jpg" alt="Product"
+                /></span>
+              </a>
+            </div>
+            <div class="product-details">
+              <span class="product-category">Tiara</span>
+              <h2 class="product-name">
+                <a href="product-page8.html">Crystal Queen Wedding Tiara</a>
+              </h2>
+              <div class="product-price"><span class="current-price">$450</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-container justify-content-between">
+        <label class="col-form-label"
+          >Showing 1–<span class="showing_record">1</span>&nbsp;of&nbsp;<span
+            class="showing_total_record"
+            >23</span
+          >&nbsp;results.</label
+        >
+        <div class="col-12 col-sm-6">
+          <ol class="pagination-list">
+            <li class="pagination-item">
+              <a href="#">
+                <i class="fa fa-angle-double-left" style="font-size: 12px"></i
+              ></a>
+            </li>
+            <li class="pagination-item"><a href="#">1</a></li>
+            <li class="pagination-item"><a href="#">2</a></li>
+            <li class="pagination-item"><a href="#">3</a></li>
+            <li class="pagination-item"><a href="#">4</a></li>
+            <li class="pagination-item">
+              <a href="#">
+                <i class="fa fa-angle-double-right" style="font-size: 12px"></i
+              ></a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      id="footerThree"
+      class="footer-main footer-three footer-desktop d-none d-md-block"
+    >
+      <div class="footer-container">
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <h4>Subscribe to our newsletter</h4>
+                <p>
+                  Subscribe to the Katora mailing list to receive updates on new
+                  arrivals, special offers and other discount information.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <form class="newsletter-form">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your email address"
+                    required
+                  />
+                  <button type="submit" class="btn">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-main">
+          <div class="container">
+            <div class="row">
+              <!-- Column 1 -->
+              <div class="col-md-3 footer-column">
+                <h5>Information</h5>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+                  <li><a href="#">Returns & Exchanges</a></li>
+                  <li><a href="#">Shipping & Delivery</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 2 -->
+              <div class="col-md-3 footer-column">
+                <h5>Customer Service</h5>
+                <ul>
+                  <li><a href="#">Request Personal Data</a></li>
+                  <li><a href="#">FAQ's</a></li>
+                  <li><a href="#">Return Policy</a></li>
+                  <li><a href="#">Make a Return</a></li>
+                  <li><a href="#">Wholesale Inquiries</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 3 -->
+              <div class="col-md-3 footer-column">
+                <h5>Quick Links</h5>
+                <ul>
+                  <li><a href="#">Store Location</a></li>
+                  <li><a href="#">My Account</a></li>
+                  <li><a href="#">Orders Tracking</a></li>
+                  <li><a href="#">Size Guide</a></li>
+                  <li><a href="#">FAQs</a></li>
+                </ul>
+              </div>
+
+              <!-- Column 4 -->
+              <div class="col-md-3 footer-column">
+                <h5>Contact Us</h5>
+                <ul>
+                  <li><a href="#">Katora Store</a></li>
+                  <li><a href="#">Call: +1 234 567 890</a></li>
+                  <li><a href="#">Email: info@katora.com</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright-section">
+          <div class="container">
+            <div class="copyright-text">
+              <p>
+                © 2023 Katora. All Rights Reserved. Designed by
+                <a href="#" target="_blank">Katora</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-1CmEeNq2CpoVYFBDI8P8QpY6FZ1MpK1DTxJEMpJ4I6T1Hp1J7F7E6F1p1p1J6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
